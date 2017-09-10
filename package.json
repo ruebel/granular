@@ -1,0 +1,13 @@
+{
+  "name": "grainular",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Randy Uebel <ruebel@gsandf.com> (http://www.gsandf.com)",
+  "license": "MIT",
+  "scripts": {
+    "start": "autoreload-server -w \"**/**.{html,css,js}\" ./ 8008"
+  },
+  "devDependencies": {
+    "simple-autoreload-server": "^0.2.7"
+  }
+}
