@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   createGain,
@@ -8,7 +8,7 @@ import {
   startGrain
 } from './utils';
 
-class Grainular extends PureComponent {
+class Grainular extends React.PureComponent {
   state = {
     buffer: null,
     context: null,
@@ -18,7 +18,7 @@ class Grainular extends PureComponent {
 
   componentDidMount() {
     const context = this.props.context || getContext();
-    const master = createGain(context, this.state.gain);
+    const master = createGain(context, this.props.gain);
     if (this.props.output) {
       master.connect(this.props.output);
     } else {
@@ -97,6 +97,7 @@ Grainular.defaultProps = {
   sustain: 100
 };
 
+/* eslint-disable */
 Grainular.propTypes = {
   attack: PropTypes.number,
   buffer: PropTypes.object,

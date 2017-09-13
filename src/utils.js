@@ -1,11 +1,11 @@
-export const createGain = (context, velocity) => {
+export const createGain = (context, velocity = 0.001) => {
   const gain = context.createGain();
   gain.gain.value = velocity;
   return gain;
 };
 
 export const createGrain = (state, master, context) => {
-  const gain = createGain(context, 0);
+  const gain = createGain(context);
   const pan = createPan(context, state.pan);
   pan.connect(gain);
   gain.connect(master);

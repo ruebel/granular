@@ -2,9 +2,12 @@ const drawPoint = (ctx, x, y, width, height) => {
   ctx.strokeRect(x, y, width, height);
 };
 
-const drawWaveform = (buffer, canvas) => {
-  const wave = buffer.getChannelData(0);
+export const drawWaveform = (buffer, canvas) => {
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (!buffer) return;
+  const wave = buffer.getChannelData(0);
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = 300);
   ctx.lineWidth = 1;

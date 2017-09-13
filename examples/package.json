@@ -7,8 +7,9 @@
   "scripts": {
     "prebuild": "npm run clean:dist",
     "build": "react-scripts build",
+    "postbuild": "npm run copy:docs",
     "clean:dist": "rm -rf ./docs",
-    "copy:docs": "cp docs/src/.gitignore docs/dist/.gitignore",
+    "copy:docs": "mv ./examples/build ./docs",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
     "publish": "build && publish:docs",
@@ -54,11 +55,10 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "^1.0.13",
-    "styled-components": "^2.1.2",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.7.1"
+    "styled-components": "^2.1.2"
   },
   "dependencies": {
+    "grainular": "file:../lib",
     "prop-types": "^15.5.10"
   }
 }
