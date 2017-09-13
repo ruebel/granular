@@ -12,8 +12,6 @@
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
     "postinstall": "cd ./examples && yarn install",
-    "publish": "build && publish:docs",
-    "publish:docs": "git subtree push --prefix docs/dist origin gh-pages",
     "start": "cd ./examples && npm run start"
   },
   "babel": {
