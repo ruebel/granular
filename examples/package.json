@@ -9,7 +9,7 @@
     "build": "react-scripts build",
     "postbuild": "npm run copy:docs",
     "clean:dist": "rm -rf ./docs",
-    "copy:docs": "mv ./examples/build ./docs",
+    "copy:docs": "mv ./build ../docs",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
     "publish": "build && publish:docs",
