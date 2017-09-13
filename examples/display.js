@@ -1,8 +1,12 @@
+const drawPoint = (ctx, x, y, width, height) => {
+  ctx.strokeRect(x, y, width, height);
+};
+
 const drawWaveform = (buffer, canvas) => {
   const wave = buffer.getChannelData(0);
   const ctx = canvas.getContext('2d');
-  const width = canvas.width;
-  const height = canvas.height;
+  const width = (canvas.width = window.innerWidth);
+  const height = (canvas.height = 300);
   ctx.lineWidth = 1;
   ctx.strokeWidth = 1;
   ctx.strokeStyle = 'green';
@@ -20,13 +24,6 @@ const drawWaveform = (buffer, canvas) => {
       Math.max(1, (bounds.max - bounds.min) * maxAmp)
     );
   }
-};
-
-const drawPoint = (ctx, x, y, width, height) => {
-  const trans = (x % 2) / 2;
-  ctx.translate(trans, 0);
-  ctx.strokeRect(x, y, width, height);
-  ctx.translate(-trans, 0);
 };
 
 const getBounds = values => {

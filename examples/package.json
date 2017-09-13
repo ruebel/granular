@@ -1,7 +1,7 @@
 {
-  "name": "grainular",
+  "name": "grainular-examples",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "index.js",
   "author": "Randy Uebel <randy.uebel@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -40,10 +40,6 @@
   "eslintConfig": {
     "extends": "gsandf-react",
     "parser": "babel-eslint"
-  },
-  "peerDependencies": {
-    "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0",
-    "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
