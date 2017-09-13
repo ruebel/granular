@@ -12,8 +12,6 @@
     "copy:docs": "mv ./build ../docs",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
-    "publish": "build && publish:docs",
-    "publish:docs": "git subtree push --prefix docs/dist origin gh-pages",
     "start": "react-scripts start"
   },
   "babel": {
