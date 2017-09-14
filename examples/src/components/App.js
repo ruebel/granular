@@ -1,17 +1,29 @@
 import React from 'react';
 import Button from './Button';
-import Grainular from 'grainular';
+import Granular from '../lib/Granular';
+import Slider from './Slider';
 import Title from './Title';
 import Waveform from './Waveform';
 import { getAudioBuffer, getContext } from './utils';
 
 class App extends React.PureComponent {
   state = {
+    attack: 20,
     buffer: null,
-    running: false
+    context: null,
+    density: 0.1,
+    gain: 0.6,
+    output: null,
+    pan: 1,
+    playbackRate: 1,
+    position: 0.5,
+    release: 20,
+    run: false,
+    spread: 0.2,
+    sustain: 100
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const context = getContext();
     this.setState({
       context
@@ -31,103 +43,81 @@ class App extends React.PureComponent {
 
   start = () => {
     this.setState({
-      running: true
+      run: true
     });
   };
 
   stop = () => {
     this.setState({
-      running: false
+      run: false
     });
   };
 
   render() {
     return (
       <div>
-        <Grainular
-          buffer={this.state.buffer}
-          context={this.state.context}
-          run={this.state.running}
-        />
-        <Title>Grainular Synth</Title>
+        <Granular {...this.state} />
+        <Title>Granular Synth</Title>
         <Button onClick={this.getFile}>Get File</Button>
         <Button onClick={this.start}>Start</Button>
         <Button onClick={this.stop}>Stop</Button>
 
         <div className="sliders">
-          <div className="input-group">
-            <input
-              min="10"
-              max="100"
-              type="range"
-              onInput={value => this.setValue(value, 'attack')}
-              orient="vertical"
-            />
-            <h4>Attack</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="0"
-              max="200"
-              type="range"
-              onInput={value => this.setValue(value, 'sustain')}
-              orient="vertical"
-            />
-            <h4>Sustain</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="10"
-              max="100"
-              type="range"
-              onInput={value => this.setValue(value, 'release')}
-              orient="vertical"
-            />
-            <h4>Release</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="1"
-              max="100"
-              type="range"
-              onInput={value => this.setValue(value, 'density')}
-              orient="vertical"
-            />
-            <h4>Density</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="0"
-              max="2"
-              step="0.01"
-              type="range"
-              onInput={value => this.setValue(value, 'playbackRate')}
-              orient="vertical"
-            />
-            <h4>Playback Rate</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="0"
-              max="1"
-              step="0.01"
-              type="range"
-              onInput={value => this.setValue(value, 'pan')}
-              orient="vertical"
-            />
-            <h4>Pan</h4>
-          </div>
-          <div className="input-group">
-            <input
-              min="0"
-              max="2"
-              step="0.01"
-              type="range"
-              onInput={value => this.setValue(value, 'spread')}
-              orient="vertical"
-            />
-            <h4>Spread</h4>
-          </div>
+          <Slider
+            max={100}
+            min={10}
+            onChange={this.setValue}
+            propName="attack"
+            step={1}
+            title="Attack"
+            value={this.state.attack}
+          />
+          <Slider
+            max={200}
+            onChange={this.setValue}
+            propName="sustain"
+            step={1}
+            title="Sustain"
+            value={this.state.sustain}
+          />
+          <Slider
+            max={100}
+            min={10}
+            onChange={this.setValue}
+            propName="release"
+            step={1}
+            title="Release"
+            value={this.state.release}
+          />
+          <Slider
+            max={1}
+            min={0.01}
+            onChange={this.setValue}
+            propName="density"
+            step={0.01}
+            title="Density"
+            value={this.state.density}
+          />
+          <Slider
+            max={2}
+            onChange={this.setValue}
+            propName="playbackRate"
+            title="Playback Rate"
+            value={this.state.playbackRate}
+          />
+          <Slider
+            onChange={this.setValue}
+            propName="pan"
+            title="Pan"
+            value={this.state.pan}
+          />
+          <Slider
+            max={2}
+            onChange={this.setValue}
+            propName="spread"
+            title="Spread"
+            value={this.state.spread}
+          />
         </div>
         <h4>Position</h4>
         <input
@@ -135,8 +125,9 @@ class App extends React.PureComponent {
           max="1"
           step="0.01"
           type="range"
-          onInput={value => this.setValue(value, 'position')}
+          onChange={event => this.setValue(event.target.value, 'position')}
           style={{ width: '100%' }}
+          value={this.state.position}
         />
         <Waveform buffer={this.state.buffer} />
       </div>

@@ -1,3 +1,3 @@
-import Grainular from './Grainular';
+import Granular from './Granular';
 
-export default Grainular;
+export default Granular;

@@ -4,13 +4,20 @@ import styled from 'styled-components';
 import { drawWaveform } from './utils';
 
 const Canvas = styled.canvas`
-  height: 300px;
+  image-rendering: -webkit-optimize-contrast !important;
   width: 100%;
+  height: 300px;
 `;
 
 class Waveform extends React.PureComponent {
   componentWillReceiveProps(next) {
-    drawWaveform(next.buffer, this.canvas);
+    if (next.buffer !== this.props.buffer) {
+      drawWaveform(next.buffer, this.canvas);
+    }
+  }
+
+  shouldComponentUpdate() {
+    return false;
   }
 
   render() {

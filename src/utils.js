@@ -4,9 +4,9 @@ export const createGain = (context, velocity = 0.001) => {
   return gain;
 };
 
-export const createGrain = (state, master, context) => {
+export const createGrain = (panVal, master, context) => {
   const gain = createGain(context);
-  const pan = createPan(context, state.pan);
+  const pan = createPan(context, panVal);
   pan.connect(gain);
   gain.connect(master);
 
@@ -52,16 +52,16 @@ const random = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
-export const startGrain = (grain, state, context) => {
+export const startGrain = (grain, state) => {
   grain.busy = true;
   // Create source
-  grain.source = context.createBufferSource();
+  grain.source = state.context.createBufferSource();
   grain.source.buffer = state.buffer;
   grain.source.connect(grain.pan);
   grain.pan.setPosition(random(-state.pan, state.pan), 0, 0);
   grain.source.playbackRate.value *= state.playbackRate;
   // Calculate curve times
-  const now = context.currentTime;
+  const now = state.context.currentTime;
   const position = getPosition(
     state.buffer.duration,
     state.position,

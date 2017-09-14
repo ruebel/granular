@@ -1,15 +1,11 @@
 {
-  "name": "grainular-examples",
+  "name": "granular-examples",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Randy Uebel <randy.uebel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prebuild": "npm run clean:dist",
     "build": "react-scripts build",
-    "postbuild": "npm run copy:docs",
-    "clean:dist": "rm -rf ./docs",
-    "copy:docs": "mv ./build ../docs",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
     "start": "react-scripts start"
@@ -56,7 +52,6 @@
     "styled-components": "^2.1.2"
   },
   "dependencies": {
-    "grainular": "file:../lib",
     "prop-types": "^15.5.10"
   }
 }
