@@ -1,6 +1,9 @@
 # granular
 > React granular synthesis engine
 
+## example
+https://ruebel.github.io/granular/
+
 ## usage
 ```js
 import Granular from 'granular';
