@@ -2,7 +2,7 @@ const drawPoint = (ctx, x, y, width, height) => {
   ctx.strokeRect(x, y, width, height);
 };
 
-export const drawWaveform = (buffer, canvas) => {
+export const drawWaveform = (buffer, canvas, style) => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -12,7 +12,7 @@ export const drawWaveform = (buffer, canvas) => {
   const height = (canvas.height = 300);
   ctx.lineWidth = 1;
   ctx.strokeWidth = 1;
-  ctx.strokeStyle = 'green';
+  ctx.strokeStyle = style;
 
   const step = Math.ceil(wave.length / width);
   const maxAmp = height / 2;

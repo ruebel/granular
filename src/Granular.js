@@ -27,6 +27,11 @@ class Granular extends React.PureComponent {
       } else {
         this.stop();
       }
+    } else if (next.density !== this.props.density && this.state.interval) {
+      clearInterval(this.state.interval);
+      this.setState(state => ({
+        interval: setInterval(this.tick, 1000 / this.props.density)
+      }));
     }
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { drawWaveform } from './utils';
+import { color } from '../../styles/theme';
 
 const Canvas = styled.canvas`
   image-rendering: -webkit-optimize-contrast !important;
@@ -12,7 +13,7 @@ const Canvas = styled.canvas`
 class Waveform extends React.PureComponent {
   componentWillReceiveProps(next) {
     if (next.buffer !== this.props.buffer) {
-      drawWaveform(next.buffer, this.canvas);
+      drawWaveform(next.buffer, this.canvas, color.primary);
     }
   }
 

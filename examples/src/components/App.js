@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Button from './Button';
 import Granular from '../lib/Granular';
 import Slider from './Slider';
@@ -6,12 +7,30 @@ import Title from './Title';
 import Waveform from './Waveform';
 import { getAudioBuffer, getContext } from './utils';
 
+const Sliders = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 1.5em 0;
+`;
+
+const Wrapper = styled.div`
+  background: linear-gradient(
+    to top left,
+    ${p => p.theme.color.background},
+    ${p => p.theme.color.backgroundSecondary}
+  );
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0.8em;
+`;
+
 class App extends React.PureComponent {
   state = {
     attack: 20,
     buffer: null,
     context: null,
-    density: 0.1,
+    density: 500,
     gain: 0.6,
     output: null,
     pan: 1,
@@ -55,14 +74,14 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <Granular {...this.state} />
         <Title>Granular Synth</Title>
         <Button onClick={this.getFile}>Get File</Button>
         <Button onClick={this.start}>Start</Button>
         <Button onClick={this.stop}>Stop</Button>
 
-        <div className="sliders">
+        <Sliders>
           <Slider
             max={100}
             min={10}
@@ -90,11 +109,11 @@ class App extends React.PureComponent {
             value={this.state.release}
           />
           <Slider
-            max={1}
-            min={0.01}
+            max={4000}
+            min={10}
             onChange={this.setValue}
             propName="density"
-            step={0.01}
+            step={1}
             title="Density"
             value={this.state.density}
           />
@@ -118,19 +137,19 @@ class App extends React.PureComponent {
             title="Spread"
             value={this.state.spread}
           />
-        </div>
-        <h4>Position</h4>
-        <input
-          min="0"
-          max="1"
-          step="0.01"
-          type="range"
-          onChange={event => this.setValue(event.target.value, 'position')}
-          style={{ width: '100%' }}
+        </Sliders>
+        <Slider
+          min={0}
+          max={1}
+          orient="horizontal"
+          onChange={this.setValue}
+          propName="position"
+          step={0.01}
+          title="Position"
           value={this.state.position}
         />
         <Waveform buffer={this.state.buffer} />
-      </div>
+      </Wrapper>
     );
   }
 }
