@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import FileInput from './FileInput';
 import Granular from '../lib/Granular';
 import Slider from './Slider';
 import Title from './Title';
@@ -49,9 +50,15 @@ class App extends React.PureComponent {
     });
   }
 
-  getFile = async path => {
-    const buffer = await getAudioBuffer('audio/test.mp3', this.state.context);
+  getFile = async (path = 'audio/test.mp3') => {
+    const buffer = await getAudioBuffer(path, this.state.context);
     this.setState({ buffer });
+  };
+
+  handleFile = event => {
+    const files = event.target.files;
+    const file = window.URL.createObjectURL(files[0]);
+    this.getFile(file);
   };
 
   setValue = (val, prop) => {
@@ -77,9 +84,17 @@ class App extends React.PureComponent {
       <Wrapper>
         <Granular {...this.state} />
         <Title>Granular Synth</Title>
-        <Button onClick={this.getFile}>Get File</Button>
-        <Button onClick={this.start}>Start</Button>
-        <Button onClick={this.stop}>Stop</Button>
+        <Button onClick={() => this.getFile()}>Example File</Button>
+        <FileInput accept="audio/*" onChange={this.handleFile} />
+        <Button
+          disabled={!this.state.buffer || this.state.run}
+          onClick={this.start}
+        >
+          Start
+        </Button>
+        <Button disabled={!this.state.run} onClick={this.stop}>
+          Stop
+        </Button>
 
         <Sliders>
           <Slider
