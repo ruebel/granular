@@ -64,7 +64,7 @@ Slider.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   onChange: PropTypes.func.isRequired,
-  orient: PropTypes.string,
+  orient: PropTypes.oneOf(['vertical', 'horizontal']),
   propName: PropTypes.string.isRequired,
   step: PropTypes.number,
   title: PropTypes.string.isRequired,

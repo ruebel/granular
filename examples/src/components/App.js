@@ -137,6 +137,12 @@ class App extends React.PureComponent {
             title="Spread"
             value={this.state.spread}
           />
+          <Slider
+            onChange={this.setValue}
+            propName="gain"
+            title="Gain"
+            value={this.state.gain}
+          />
         </Sliders>
         <Slider
           min={0}
