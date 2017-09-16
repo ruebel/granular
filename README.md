@@ -4,6 +4,9 @@
 ## example
 https://ruebel.github.io/granular/
 
+## installation
+```npm install granular```
+
 ## usage
 ```js
 import Granular from 'granular';
