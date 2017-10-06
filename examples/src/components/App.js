@@ -165,7 +165,7 @@ class App extends React.PureComponent {
           orient="horizontal"
           onChange={this.setValue}
           propName="position"
-          step={0.01}
+          step={0.001}
           title="Position"
           value={this.state.position}
         />

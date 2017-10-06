@@ -10,7 +10,6 @@ const Input = styled.input`
       ? `
         -webkit-appearance: slider-vertical;
         height: 175px;
-        width: 100%;
         padding: 0 5px`
       : `margin-top: 0.2em`};
 
