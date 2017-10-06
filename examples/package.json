@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "homepage": "https://ruebel.github.io/granular",
-  "author": "Randy Uebel <randy.uebel@gmail.com>",
+  "author": "Randy Uebel <randy.uebel@gmail.com> (http://randyuebel.com/)",
   "license": "MIT",
   "scripts": {
     "build": "react-scripts build",

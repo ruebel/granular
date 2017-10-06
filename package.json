@@ -4,7 +4,7 @@
   "version": "0.1.3",
   "homepage": "https://ruebel.github.io/granular",
   "main": "lib/index.js",
-  "author": "Randy Uebel <randy.uebel@gmail.com>",
+  "author": "Randy Uebel <randy.uebel@gmail.com> (http://randyuebel.com/)",
   "repository": "https://github.com/ruebel/granular",
   "license": "MIT",
   "scripts": {
@@ -49,6 +49,7 @@
     "babel-preset-env": "^1.2.1",
     "babel-preset-stage-2": "^6.18.0",
     "babel-watch": "^2.0.5",
+    "cpx": "^1.5.0",
     "eslint": "^4.6.1",
     "eslint-config-gsandf-react": "^0.2.0",
     "eslint-watch": "^3.1.2",
