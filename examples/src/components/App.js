@@ -5,13 +5,19 @@ import FileInput from './FileInput';
 import Granular from '../lib/Granular';
 import Slider from './Slider';
 import Title from './Title';
-import Waveform from './Waveform';
+import Waveform from 'waveform-react';
 import { getAudioBuffer, getContext } from './utils';
+import { color } from '../styles/theme';
 
 const Sliders = styled.div`
   display: flex;
   width: 100%;
   margin: 1.5em 0;
+`;
+
+const WaveformWrapper = styled.div`
+  width: 100%;
+  height: 300px;
 `;
 
 const Wrapper = styled.div`
@@ -169,7 +175,15 @@ class App extends React.PureComponent {
           title="Position"
           value={this.state.position}
         />
-        <Waveform buffer={this.state.buffer} />
+        <WaveformWrapper>
+          <Waveform
+            buffer={this.state.buffer}
+            responsive
+            waveStyle={{
+              color: color.primary
+            }}
+          />
+        </WaveformWrapper>
       </Wrapper>
     );
   }
