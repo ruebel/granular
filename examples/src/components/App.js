@@ -17,7 +17,8 @@ const Sliders = styled.div`
 
 const WaveformWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
+  position: relative;
 `;
 
 const Wrapper = styled.div`
@@ -180,7 +181,9 @@ class App extends React.PureComponent {
             buffer={this.state.buffer}
             responsive
             waveStyle={{
-              color: color.primary
+              animate: true,
+              color: color.primary,
+              pointWidth: 1
             }}
           />
         </WaveformWrapper>
