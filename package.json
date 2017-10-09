@@ -1,7 +1,7 @@
 {
   "name": "granular",
   "description": "react granular synthesis engine",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://ruebel.github.io/granular",
   "main": "lib/index.js",
   "author": "Randy Uebel <randy.uebel@gmail.com> (http://randyuebel.com/)",
@@ -15,11 +15,11 @@
     "copy:docs": "cpx \"./examples/build/**/*\" \"./docs\" -C",
     "feedexamples": "cpx ./src/**/* ./examples/src/lib -u",
     "feedexamples:watch": "npm run feedexamples -- -w",
+    "install:examples": "cd ./examples && yarn install",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
     "prebuild:docs": "npm run feedexamples",
     "postbuild:docs": "run-s copy:docs",
-    "postinstall": "cd ./examples && yarn install",
     "start": "run-p feedexamples:watch start:examples",
     "start:examples": "cd ./examples && npm run start"
   },
