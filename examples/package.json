@@ -40,7 +40,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.0.1",
     "babel-preset-env": "^1.2.1",
     "babel-preset-stage-2": "^6.18.0",
     "babel-watch": "^2.0.5",
@@ -51,9 +51,9 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "styled-components": "^2.1.2",
-    "waveform-react": "^0.1.8"
+    "waveform-react": "^0.2.0"
   }
 }

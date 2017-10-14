@@ -15,6 +15,7 @@
     "copy:docs": "cpx \"./examples/build/**/*\" \"./docs\" -C",
     "feedexamples": "cpx ./src/**/* ./examples/src/lib -u",
     "feedexamples:watch": "npm run feedexamples -- -w",
+    "install:all": "yarn install && cd ./examples && yarn install",
     "install:examples": "cd ./examples && yarn install",
     "lint": "esw -f simple-detail --color src",
     "lint:watch": "npm run lint -- --watch",
@@ -41,13 +42,13 @@
     "parser": "babel-eslint"
   },
   "peerDependencies": {
-    "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0",
-    "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0"
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.0.1",
     "babel-preset-env": "^1.2.1",
     "babel-preset-stage-2": "^6.18.0",
     "babel-watch": "^2.0.5",
@@ -56,8 +57,8 @@
     "eslint-config-gsandf-react": "^0.2.0",
     "eslint-watch": "^3.1.2",
     "npm-run-all": "^4.1.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "dependencies": {
     "prop-types": "^15.5.10"

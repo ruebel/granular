@@ -179,7 +179,14 @@ class App extends React.PureComponent {
         <WaveformWrapper>
           <Waveform
             buffer={this.state.buffer}
+            markerStyle={{
+              color: color.tertiary,
+              width: 4
+            }}
+            onPositionChange={pos => this.setValue(pos, 'position')}
+            position={this.state.position}
             responsive
+            showPosition
             waveStyle={{
               animate: true,
               color: color.primary,

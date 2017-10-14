@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createGain, createGrain, killGrain, startGrain } from './utils';
 
-class Granular extends React.PureComponent {
+class Granular extends React.Component {
   state = {
     grains: [],
     master: null
