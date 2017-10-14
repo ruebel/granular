@@ -1,7 +1,7 @@
 {
   "name": "granular",
   "description": "react granular synthesis engine",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://ruebel.github.io/granular",
   "main": "lib/index.js",
   "author": "Randy Uebel <randy.uebel@gmail.com> (http://randyuebel.com/)",

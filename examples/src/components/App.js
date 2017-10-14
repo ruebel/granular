@@ -166,16 +166,6 @@ class App extends React.PureComponent {
             value={this.state.gain}
           />
         </Sliders>
-        <Slider
-          min={0}
-          max={1}
-          orient="horizontal"
-          onChange={this.setValue}
-          propName="position"
-          step={0.001}
-          title="Position"
-          value={this.state.position}
-        />
         <WaveformWrapper>
           <Waveform
             buffer={this.state.buffer}

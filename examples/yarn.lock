@@ -6737,9 +6737,9 @@ watchpack@^1.4.0:
     chokidar "^1.7.0"
     graceful-fs "^4.1.2"
 
-waveform-react@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/waveform-react/-/waveform-react-0.2.0.tgz#8d6c13d73977e7de3ff905ce5c797b176fb9ef68"
+waveform-react@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/waveform-react/-/waveform-react-0.2.3.tgz#65d13c3b7a8711bddb94a7e014c516fec9bce587"
   dependencies:
     prop-types "^15.5.10"
 
